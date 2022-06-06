@@ -1,0 +1,766 @@
+
+org	0x100 	; start offset at memory position 100
+jmp	main 	; jump to main program
+;	
+; Data definitions
+;
+
+mess1: 		db 	'Input any capital letter (A - E)', 0dh,0ah,'$'
+
+
+out1:db '  00100    4   $' 
+out2:db '  01010    A   $'  
+out3:db '  10001    11  $' 
+out4:db '  11111    1F  $' 
+out5:db '  11110    1E  $' 
+out6:db '  00011    3   $'          
+out7:db '  01000    8   $' 
+out8:db '  10000    10  $'
+
+errmess: 	db 	' Out of Range Pick Letter A-E',0dh,0ah,'$'
+crlf: 		db 	0dh,0ah, '$'
+
+;
+; Display a string on the screen
+; DX contains the address of the string
+;
+
+display:
+mov 	ah,	09
+int	21h	
+ret
+
+
+
+;
+;The displays
+;   
+A:
+  call display4 
+   
+  mov bl,31h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h 
+   
+  call nextline 
+  
+  call displayA 
+   
+  mov bl,32h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h         
+        
+  call nextline 
+        
+  call display11 
+  
+  
+  mov bl,33h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h         
+  
+  call nextline 
+  
+  call display1F 
+   
+  mov bl,34h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h       
+  
+  call nextline 
+  
+  call display11 
+
+  mov bl,35h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h       
+  
+  call nextline 
+           
+  call display11 
+             
+  mov bl,36h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+  
+  call nextline 
+                
+  call display11 
+
+  
+  mov bl,37h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h    
+  ret
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     B:
+  call display1E 
+
+  
+  mov bl,31h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h  
+             
+  call nextline 
+             
+  call display11 
+  
+  
+  mov bl,32h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h         
+                 
+  call nextline 
+                 
+  call display11 
+  
+  
+  mov bl,33h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h   
+                               
+  call nextline 
+                               
+  call display1E 
+   
+  
+  mov bl,34h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+                
+  call nextline 
+                
+  call display11 
+ 
+  mov bl,35h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+             
+  call nextline 
+             
+  call display11 
+
+  
+  mov bl,36h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+               
+  call nextline 
+               
+  call display1E
+
+  mov bl,37h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+  ret
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     C:
+  call display3 
+
+  
+  mov bl,31h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h  
+             
+  call nextline 
+             
+  call display4 
+  
+  
+  mov bl,32h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h         
+                 
+  call nextline 
+                 
+  call display8 
+  
+  
+  mov bl,33h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h   
+                               
+  call nextline 
+                               
+  call display8 
+   
+  
+  mov bl,34h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+                
+  call nextline 
+                
+  call display8 
+ 
+  mov bl,35h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+             
+  call nextline 
+             
+  call display4 
+
+  
+  mov bl,36h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+               
+  call nextline 
+               
+  call display3
+
+  mov bl,37h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+  ret
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     D:
+  call display1E 
+
+  
+  mov bl,31h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h  
+             
+  call nextline 
+             
+  call display11 
+  
+  
+  mov bl,32h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h         
+                 
+  call nextline 
+                 
+  call display11 
+  
+  
+  mov bl,33h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h   
+                               
+  call nextline 
+                               
+  call display11 
+   
+  
+  mov bl,34h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+                
+  call nextline 
+                
+  call display11 
+ 
+  mov bl,35h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+             
+  call nextline 
+             
+  call display11 
+
+  
+  mov bl,36h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+               
+  call nextline 
+               
+  call display1E
+
+  mov bl,37h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+  ret
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     E:
+  call display1F 
+
+  
+  mov bl,31h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h  
+             
+  call nextline 
+             
+  call display10   
+  
+  
+  mov bl,62h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h         
+                 
+  call nextline 
+                 
+  call display10  
+  
+  
+  mov bl,33h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h   
+                               
+  call nextline 
+                               
+  call display1F 
+   
+  
+  mov bl,34h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+                
+  call nextline 
+                
+  call display10     
+ 
+  mov bl,35h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+             
+  call nextline 
+             
+  call display10      
+
+  
+  mov bl,36h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h     
+               
+  call nextline 
+               
+  call display1F
+
+  mov bl,37h 
+  mov ah, 2   ; display  line number 
+  mov dl, bl
+  int 21h
+  ret
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;8  
+ display8:
+ ;8 01000
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov  dx, out7        ; message's address in dx  
+ call display
+ 
+ ret
+ ;8 01000
+ 
+  display10:
+ ;10 10000
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov  dx, out8        ; message's address in dx  
+ call display
+ 
+ ret
+ ;10 10000
+   
+;3  
+ display3:
+ ;3 00011
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov  dx, out6        ; message's address in dx  
+ call display
+ 
+ ret
+ ;3 00011
+
+
+ ;1E  
+ display1E:
+ ;1E 11110
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov  dx, out5        ; message's address in dx  
+ call display
+ 
+ ret
+ ;1E 11110
+
+
+
+;1F  
+ display1F:
+ ;1F 11111
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl 
+  int 21h
+ mov  dx, out4        ; message's address in dx  
+ call display
+ 
+
+ ret
+ ;1F 11111  
+ 
+;11
+ display11:
+ ;11 10001
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h   
+ 
+ mov  dx, out3        ; message's address in dx  
+ call display
+ 
+ ret
+ ;11 10001
+
+;4
+ display4:
+ ;4 00100
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov  dx, out1        ; message's address in dx  
+ call display 
+ 
+ ret
+ ;4 00100
+
+
+ ;A
+  displayA:
+ ;A 01010
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov bl,24h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h
+ 
+ mov bl,20h;31h 
+ mov ah, 2   ; display  function here
+ mov dl, bl
+ int 21h 
+ 
+ mov  dx, out2        ; message's address in dx  
+ call display
+ 
+ ret
+ ;A 01010
+
+;
+; Set the cursor position
+;
+cursor:
+mov 	ah,02
+mov 	bh,0 	; screen number 
+mov	dh,0ah 	; row
+mov 	dl,0 	; column
+int 	10h
+ret
+;
+; Display a user prompt
+;
+prompt:
+	mov 	dx,mess1
+	call 	display
+	ret
+;
+; Read one character from the keyboard
+;
+input:
+	mov 	ah,01
+	int 	21h
+	ret
+;
+; Clear screen and change screen colour
+;
+screen:
+	mov ah,06 	; scroll up screen
+	mov al,0 	; lines to scroll where 0 clear entire screen
+	mov cx,0 	; starting row:column
+	mov dl,80 	; ending row;column
+	mov dh,80
+	mov BH,1Eh 	; change background color to white on blue
+	int 10h
+	ret
+;
+; Carriage returnm and line feed
+;
+nextline:
+	mov 	dx,crlf
+	call 	display
+	ret
+;
+; Main program
+;
+main:
+	call screen
+	call cursor
+
+	 next:
+
+	call prompt
+	call input 
+	
+	cmp al,41h 	; character < A?
+	jl error
+    cmp al,45h 	; character < A?
+	jg error 	; yes, error message
+	
+	cmp al,41h 	; character < A?
+	jl error
+	je thenA 
+	
+	cmp al,42h 	; character < B?
+	jl error
+	je thenB 
+	
+	cmp al,43h 	; character < C?
+	jl error
+	je thenC	
+	
+	cmp al,44h 	; character < D?
+	jl error
+	je thenD
+	
+	cmp al,45h 	; character < E?
+	jl error
+	je thenE	
+	
+	thenA:
+	call nextline 
+	call A 
+	jmp fin
+	  
+	thenB:
+	call nextline
+	call B
+	call fin
+		 	
+	thenC:
+	call nextline
+	call C
+	call fin
+	
+	thenD:
+	call nextline
+	call D
+	call fin
+	
+	thenE:
+	call nextline
+	call E
+	call fin
+	
+
+	
+	
+	
+	fin:	int 20h 	; terminate program
+;
+; Display error message. Number out of range
+;
+error:
+	mov dx,errmess
+	call display
+	jmp next
